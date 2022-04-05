@@ -22,12 +22,6 @@ var StudentView = Backbone.View.extend({
 	delete: function () {
 		this.model.destroy();
 	},
-	events: {
-		'click .edit-student': 'edit',
-		'click .update-student': 'update',
-		'click .cancel-student': 'cancel',
-		'click .delete-student': 'delete'	
-	},
 	edit: function () {
 		$('.edit-student').hide();
 		$('.delete-student').hide();
@@ -42,6 +36,14 @@ var StudentView = Backbone.View.extend({
 		this.$('.lastName').html('<input type="text" class="form-control lastName-update" value="' + lastName + '">');
 		this.$('.address').html('<input type="text" class="form-control address-update" value="' + address + '">');
 	},
+	
+	events: {
+		'click .edit-student': 'edit',
+		'click .update-student': 'update',
+		'click .cancel-student': 'cancel',
+		'click .delete-student': 'delete'	
+	},
+	
 	render: function() {
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
